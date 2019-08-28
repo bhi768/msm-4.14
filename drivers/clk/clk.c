@@ -45,6 +45,17 @@ static HLIST_HEAD(clk_root_list);
 static HLIST_HEAD(clk_orphan_list);
 static LIST_HEAD(clk_notifier_list);
 
+static struct hlist_head *all_lists[] = {
+        &clk_root_list,
+        &clk_orphan_list,
+        NULL,
+};
+
+static struct hlist_head *orphan_list[] = {
+        &clk_orphan_list,
+        NULL,
+};
+
 struct clk_handoff_vdd {
 	struct list_head list;
 	struct clk_vdd_class *vdd_class;
@@ -2693,17 +2704,6 @@ static u32 debug_suspend;
 static DEFINE_MUTEX(clk_debug_lock);
 static HLIST_HEAD(clk_debug_list);
 
-static struct hlist_head *all_lists[] = {
-	&clk_root_list,
-	&clk_orphan_list,
-	NULL,
-};
-
-static struct hlist_head *orphan_list[] = {
-	&clk_orphan_list,
-	NULL,
-};
-
 static void clk_state_subtree(struct clk_core *c)
 {
 	int vdd_level = 0;
@@ -2740,7 +2740,6 @@ static int clk_state_show(struct seq_file *s, void *data)
 
 	return 0;
 }
-
 
 static int clk_state_open(struct inode *inode, struct file *file)
 {
