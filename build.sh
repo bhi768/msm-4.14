@@ -5,7 +5,7 @@
 ## Copy this script inside the kernel directory
 KERNEL_DEFCONFIG=cust_defconfig
 ANYKERNEL3_DIR=$PWD/AnyKernel3/
-FINAL_KERNEL_ZIP=Etherious-miatoll-$(date '+%Y%m%d').zip
+FINAL_KERNEL_ZIP=Candy-miatoll-$(date '+%Y%m%d').zip
 export PATH="$HOME/proton/bin:$PATH"
 export ARCH=arm64
 export SUBARCH=arm64
@@ -82,9 +82,4 @@ BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 echo -e "$yellow Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nocol"
 
-echo "**** Uploading your zip now ****"
-if command -v gdrive &> /dev/null; then
-gdrive upload --share $FINAL_KERNEL_ZIP
-else
 echo "Zip: $FINAL_KERNEL_ZIP"
-fi
