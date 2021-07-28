@@ -2240,6 +2240,7 @@ struct wlan_mlme_mwc {
  * @enable_pending_chan_list_req: enables/disables scan channel
  * list command to FW till the current scan is complete.
  * @retain_nol_across_regdmn_update: Retain the NOL list across the regdomain.
+ * @enable_nan_on_indoor_channels: Enable nan on Indoor channels
  */
 struct wlan_mlme_reg {
 	uint32_t self_gen_frm_pwr;
@@ -2260,6 +2261,7 @@ struct wlan_mlme_reg {
 	bool ignore_fw_reg_offload_ind;
 	bool enable_pending_chan_list_req;
 	bool retain_nol_across_regdmn_update;
+	bool enable_nan_on_indoor_channels;
 };
 
 /**

@@ -1272,3 +1272,8 @@ QDF_STATUS ucfg_nan_disable_ind_to_userspace(struct wlan_objmgr_psoc *psoc)
 	qdf_mem_free(disable_ind);
 	return QDF_STATUS_SUCCESS;
 }
+
+bool ucfg_is_nan_allowed_on_freq(struct wlan_objmgr_pdev *pdev, uint32_t freq)
+{
+	return wlan_is_nan_allowed_on_freq(pdev, freq);
+}
