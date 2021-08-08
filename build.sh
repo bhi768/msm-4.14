@@ -87,4 +87,3 @@ echo -e "$yellow Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)
 #gdrive upload --share $FINAL_KERNEL_ZIP
 #else
 echo "Zip: $FINAL_KERNEL_ZIP"
-fi
