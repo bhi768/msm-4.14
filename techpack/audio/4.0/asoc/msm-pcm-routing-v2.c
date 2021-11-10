@@ -3479,12 +3479,6 @@ static int msm_pcm_put_out_chs(struct snd_kcontrol *kcontrol,
 	pr_debug("%s: fe_id is %d, output channels = %d\n", __func__,
 			fe_id,
 			(unsigned int)(ucontrol->value.integer.value[0]));
-	if (out_ch < 0 ||
-		out_ch > ADM_MAX_CHANNELS) {
-		pr_err("%s: invalid output channel %d\n", __func__,
-				out_ch);
-		return -EINVAL;
-	}
 	channel_mixer[fe_id].output_channel =
 			(unsigned int)(ucontrol->value.integer.value[0]);
 
